@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  challenge-database:
+    image: mongo:latest
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb/init-local-challenge-db.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
